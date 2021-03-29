@@ -1,5 +1,5 @@
-# edit
-文本编辑器
+# gugugu-edit
+咕咕咕-文本编辑器
 ## 原型
 ![](./assets/images/ui.png)
 ## 功能点
