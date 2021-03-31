@@ -14,5 +14,4 @@ type UITabWidget struct {
 type Tab struct {
 	Widget   *widgets.QWidget
 	TextArea *textarea.UITextArea
-	Path     string
 }
