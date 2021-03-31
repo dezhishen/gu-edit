@@ -12,7 +12,7 @@ import (
 
 var wind *widgets.QMainWindow
 
-type UIGutestMainWindow struct {
+type UIMainWindow struct {
 	UITabs    *tab.UITabWidget
 	MenuBar   *menubar.UIMenuBar
 	StatusBar *statusbar.UIStatusBar
