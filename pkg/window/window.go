@@ -3,10 +3,20 @@ package window
 import (
 	"os"
 
+	"github.com/dezhiShen/edit/pkg/menubar"
+	"github.com/dezhiShen/edit/pkg/statusbar"
+	"github.com/dezhiShen/edit/pkg/tab"
+
 	"github.com/therecipe/qt/widgets"
 )
 
 var wind *widgets.QMainWindow
+
+type UIGutestMainWindow struct {
+	UITabs    *tab.UITabWidget
+	MenuBar   *menubar.UIMenuBar
+	StatusBar *statusbar.UIStatusBar
+}
 
 func InitWindow() (*widgets.QMainWindow, error) {
 	if wind == nil {
