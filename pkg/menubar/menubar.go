@@ -14,7 +14,6 @@ type UIMenuBar struct {
 type UIMenu struct {
 	menu    *widgets.QMenu
 	MenuBar *UIMenuBar
-	Active  bool
 	Index   int
 }
 
