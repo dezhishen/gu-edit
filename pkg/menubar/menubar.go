@@ -32,6 +32,17 @@ func (menuBar *UIMenuBar) AddMenu(menu UIMenu) error {
 	return nil
 }
 
+// 添加多个
+func (menuBar *UIMenuBar) AddMenus(menus []UIMenu) error {
+	for _, v := range menus {
+		e := menuBar.AddMenu(v)
+		if e != nil {
+			return e
+		}
+	}
+	return nil
+}
+
 // 移除菜单
 func (menu *UIMenu) Remove() error {
 	//加锁
