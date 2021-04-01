@@ -9,7 +9,7 @@ type UITextArea struct {
 	// 文件路径
 	Path string
 	// 编辑器对象
-	TextArea *widgets.QTextEdit
+	QTextArea *widgets.QTextEdit
 }
 
 //初始化

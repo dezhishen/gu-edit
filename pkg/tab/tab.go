@@ -6,12 +6,12 @@ import (
 )
 
 type UITabWidget struct {
-	TabWidget *widgets.QTabWidget
-	Tabs      []*widgets.QWidget
-	ActiveTab *Tab
+	QTabWidget *widgets.QTabWidget
+	Tabs       []*widgets.QWidget
+	ActiveTab  *Tab
 }
 
 type Tab struct {
-	Widget   *widgets.QWidget
+	QWidget  *widgets.QWidget
 	TextArea *textarea.UITextArea
 }
