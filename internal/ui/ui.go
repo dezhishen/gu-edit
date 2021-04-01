@@ -2,37 +2,41 @@ package ui
 
 import (
 	"github.com/dezhiShen/edit/pkg/menubar"
-	"github.com/dezhiShen/edit/pkg/statusbar"
-	"github.com/dezhiShen/edit/pkg/tab"
 	"github.com/dezhiShen/edit/pkg/window"
 )
 
 // 渲染页面
 func Render() error {
-	// TODO 渲染窗口
-	err := window.Render()
+	uiWindow, err := window.Render()
 	if err != nil {
 		return err
 	}
-	// TODO 设置窗口
-	err = menubar.Render(window.Instance.QWindow)
+	uiMenuBar, err := menubar.Render(uiWindow.QWindow)
 	if err != nil {
 		return err
 	}
-	// TODO 创建一些菜单
-
-	err = tab.Render(window.Instance.QWindow)
-	if err != nil {
-		return err
-	}
-	// TODO 初始化页签
+	uiWindow.MenuBar = uiMenuBar
+	menu1, _ := menubar.CreateMenu("打开", "click")
+	uiWindow.MenuBar.AddMenu(menu1)
+	// uiMenuBar.AddMenu(&menubar.UIMenu{})
+	// uiTab, err := tab.Render(uiWindow.QWindow)
+	// if err != nil {
+	// 	return err
+	// }
+	// tab1 := widgets.NewQWidget(uiTab.QTabWidget, core.Qt__Widget)
+	// tab1.SetObjectName("tab1")
+	// uiTab.QTabWidget.AddTab(tab1, "tab1")
+	// tab2 := widgets.NewQWidget(uiTab.QTabWidget, core.Qt__Widget)
+	// tab2.SetObjectName("tab2")
+	// uiTab.QTabWidget.AddTab(tab2, "tab2")
+	// uiWindow.Tabs = uiTab
 	//tab.Instance.AddTab()
-	err = statusbar.Render(window.Instance.QWindow)
-	if err != nil {
-		return err
-	}
-	// TODO 初始化状态栏
+	// uiStatusbar, err := statusbar.Render(uiWindow.QWindow)
+	// if err != nil {
+	// 	return err
+	// }
+	// uiWindow.StatusBar = uiStatusbar
 	// 显示
-	window.Instance.QWindow.Show()
+	uiWindow.QWindow.Show()
 	return nil
 }

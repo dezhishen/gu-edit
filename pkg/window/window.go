@@ -13,4 +13,6 @@ type UIMainWindow struct {
 	MenuBar   *menubar.UIMenuBar
 	StatusBar *statusbar.UIStatusBar
 	QWindow   *widgets.QMainWindow
+	// QCentralwidget *widgets.QWidget
+	// QGridLayout    *widgets.QGridLayout
 }

@@ -5,13 +5,16 @@ import "github.com/therecipe/qt/widgets"
 // Instance 全局唯一对象
 var Instance *UIMenuBar
 
-func Render(mainWindow *widgets.QMainWindow) error {
+func Render(mainWindow *widgets.QMainWindow) (*UIMenuBar, error) {
+	if Instance != nil {
+		return Instance, nil
+	}
 	menuBar := widgets.NewQMenuBar(mainWindow)
 	Instance = &UIMenuBar{
 		QMenubar: menuBar,
 	}
 	// TODO 给Instanace赋值
-	return nil
+	return Instance, nil
 }
 
 func AddMenu(menu *UIMenu) error {

@@ -9,13 +9,17 @@ import (
 
 var Instance *UIMainWindow
 
-func Render() error {
+func Render() (*UIMainWindow, error) {
 	// TODO 初始化
+	if Instance != nil {
+		return Instance, nil
+	}
 	Instance = &UIMainWindow{}
 	widgets.NewQApplication(len(os.Args), os.Args)
 	qWindow := widgets.NewQMainWindow(nil, 0)
 	qWindow.SetObjectName("MainWindow")
+	qWindow.SetWindowTitle("gu-edit")
 	qWindow.SetGeometry(core.NewQRect4(0, 0, 418, 483))
 	Instance.QWindow = qWindow
-	return nil
+	return Instance, nil
 }
