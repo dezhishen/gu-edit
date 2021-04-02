@@ -1,4 +1,4 @@
-package menubar
+package model
 
 import (
 	"sync"

@@ -1,14 +1,15 @@
 package statusbar
 
 import (
+	"github.com/dezhiShen/edit/pkg/model"
 	"github.com/therecipe/qt/widgets"
 )
 
-var Instance *UIStatusBar
+var Instance *model.UIStatusBar
 
-func Render(mainWindow *widgets.QMainWindow) (*UIStatusBar, error) {
+func Render(mainWindow *widgets.QMainWindow) (*model.UIStatusBar, error) {
 	if Instance == nil {
-		Instance = &UIStatusBar{}
+		Instance = &model.UIStatusBar{}
 		Instance.QStatusBar = widgets.NewQStatusBar(mainWindow)
 		label := widgets.NewQLabel(mainWindow, 0)
 		label.SetText("我是你爹")

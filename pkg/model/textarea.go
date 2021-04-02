@@ -1,4 +1,4 @@
-package textarea
+package model
 
 import (
 	"github.com/dezhiShen/edit/internal/fileutil"

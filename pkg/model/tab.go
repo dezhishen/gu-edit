@@ -1,7 +1,6 @@
-package tab
+package model
 
 import (
-	"github.com/dezhiShen/edit/pkg/textarea"
 	"github.com/therecipe/qt/widgets"
 )
 
@@ -13,5 +12,5 @@ type UITabWidget struct {
 
 type Tab struct {
 	QWidget  *widgets.QWidget
-	TextArea *textarea.UITextArea
+	TextArea *UITextArea
 }

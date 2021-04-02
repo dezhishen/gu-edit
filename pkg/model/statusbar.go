@@ -1,4 +1,4 @@
-package statusbar
+package model
 
 import "github.com/therecipe/qt/widgets"
 
