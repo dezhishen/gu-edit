@@ -7,6 +7,7 @@ import (
 
 	"github.com/dezhiShen/edit/internal/fileutil"
 	"github.com/therecipe/qt/core"
+	"github.com/therecipe/qt/gui"
 	"github.com/therecipe/qt/widgets"
 )
 
@@ -38,9 +39,17 @@ func Render() {
 			index := strings.LastIndex(path, "/")
 			fileName := path[index+1:]
 			content, _ := fileutil.Read(path)
-			textEdit := widgets.NewQTextEdit(tabWidget)
+			textEdit := widgets.NewQPlainTextEdit(tabWidget)
 			textEdit.SetObjectName(fileName)
-			textEdit.SetText(string(content))
+			textEdit.SetPlainText(string(content))
+			textEdit.ConnectKeyPressEvent(func(event *gui.QKeyEvent) {
+				if event.Key() == int(core.Qt__Key_Enter) {
+					textEdit.InsertPlainText("\n")
+				} else if event.Modifiers() == core.Qt__ControlModifier && event.Key() == int(core.Qt__Key_S) {
+					//presse
+					fileutil.Save(path, []byte(textEdit.ToPlainText()))
+				}
+			})
 			tabWidget.AddTab(textEdit, fileName)
 			fmt.Println()
 		}
