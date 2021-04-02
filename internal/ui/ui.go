@@ -4,7 +4,6 @@ import (
 	"os"
 
 	"github.com/therecipe/qt/core"
-	"github.com/therecipe/qt/gui"
 	"github.com/therecipe/qt/widgets"
 )
 
@@ -34,38 +33,13 @@ func Render() {
 	menubar.SetObjectName("Menubar")
 	menubar.SetGeometry(core.NewQRect4(0, 0, 418, 26))
 	menu := widgets.NewQMenu(menubar)
-	menu.SetObjectName("Menu")
-	menu.ConnectMouseMoveEvent(func(event *gui.QMouseEvent) {
+	menu.SetObjectName("file")
+	menuAction := menu.AddAction("打开")
+	menuAction.ConnectTrigger(func() {
+		println("我出来了")
 	})
-	menu2 := widgets.NewQMenu(menubar)
-	menu2.SetObjectName("Menu2")
-	menu3 := widgets.NewQMenu(menubar)
-	menu3.SetObjectName("Menu3")
-	menu4 := widgets.NewQMenu(menubar)
-	menu4.SetObjectName("Menu4")
+	menubar.AddMenu(menu)
+	menubar.Show()
 	mainWindow.SetMenuBar(menubar)
-	statusbar := widgets.NewQStatusBar(mainWindow)
-	statusbar.SetObjectName("Statusbar")
-	mainWindow.SetStatusBar(statusbar)
-	menubar.QWidget.AddAction(menu.MenuAction())
-	// if menu.MenuAction() != nil {
-	// }
-	// if menu2.MenuAction() != nil {
-	// 	menubar.QWidget.AddAction(menu2.MenuAction())
-	// }
-	// if menu3.MenuAction() != nil {
-	// 	menubar.QWidget.AddAction(menu3.MenuAction())
-	// }
-	// if menu4.MenuAction() != nil {
-	// 	menubar.QWidget.AddAction(menu4.MenuAction())
-	// }
-	_translate := core.QCoreApplication_Translate
-	mainWindow.SetWindowTitle(_translate("MainWindow", "MainWindow", "", -1))
-	tabWidget.SetTabText(tabWidget.IndexOf(Tab), _translate("MainWindow", "Tab 1", "", -1))
-	tabWidget.SetTabText(tabWidget.IndexOf(Tab2), _translate("MainWindow", "Tab 2", "", -1))
-	menu.SetTitle(_translate("MainWindow", "文件", "", -1))
-	menu2.SetTitle(_translate("MainWindow", "编辑", "", -1))
-	menu3.SetTitle(_translate("MainWindow", "格式化", "", -1))
-	menu4.SetTitle(_translate("MainWindow", "设置", "", -1))
 	mainWindow.Show()
 }
