@@ -41,11 +41,13 @@ func Render() {
 	menu.SetObjectName("file")
 	menuAction := menu.AddAction("打开")
 	menuAction.ConnectTriggered(func(checkBool bool) {
-		if checkBool {
+		if !checkBool {
 			msg := widgets.NewQMessageBox(mainWindow)
 			msg.SetWindowTitle("yes comrade!")
 			msg.SetText("im opening now!")
-			msg.AddButton(widgets.NewQPushButton(msg),widgets.QMessageBox__AcceptRole)
+			okBtn := widgets.NewQPushButton(msg)
+			okBtn.SetText("ok")
+			msg.AddButton(okBtn,widgets.QMessageBox__AcceptRole)
 			msg.Exec()
 
 		}
