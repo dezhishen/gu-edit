@@ -45,7 +45,7 @@ func Render() {
 			msg := widgets.NewQMessageBox(mainWindow)
 			msg.SetWindowTitle("yes comrade!")
 			msg.SetText("im opening now!")
-			msg.AddButton(widgets.NewQAbstractButton(msg),widgets.QMessageBox__AcceptRole)
+			msg.AddButton(widgets.NewQPushButton(msg),widgets.QMessageBox__AcceptRole)
 			msg.Exec()
 
 		}
